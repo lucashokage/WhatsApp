@@ -1,11 +1,17 @@
-# Usar la imagen base de Nginx
-FROM nginx:alpine
+# Usa una imagen base adecuada
+FROM node:14
 
-# Copiar todos los archivos HTML y otros recursos al directorio de Nginx
-COPY . /usr/share/nginx/html/
+# Establece el directorio de trabajo
+WORKDIR /app
 
-# Exponer el puerto 80
-EXPOSE 80
+# Copia los archivos de tu proyecto al contenedor
+COPY . .
 
-# Comando por defecto para iniciar Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Instala las dependencias
+RUN npm install
+
+# Expone el puerto que tu aplicación usará
+EXPOSE 3000
+
+# Comando para iniciar tu aplicación
+CMD ["npm", "start"]
