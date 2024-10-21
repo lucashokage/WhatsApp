@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Leer el archivo app.json
-let rewrites;
+let rewrites = [];
 fs.readFile('./app.json', 'utf8', (err, data) => {
   if (err) {
     console.error('Error al leer app.json:', err);
