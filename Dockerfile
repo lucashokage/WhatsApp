@@ -1,20 +1,17 @@
-# Use an official Node.js runtime as a parent image
+# Usa una imagen base adecuada
 FROM node:14
 
-# Set the working directory in the container
+# Establece el directorio de trabajo
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# Copia los archivos de tu proyecto al contenedor
 COPY . .
 
-# Install any needed packages specified in package.json
+# Instala las dependencias (si es necesario)
 RUN npm install
 
-# Make port 3000 available to the world outside this container
+# Expone el puerto que tu aplicación usará
 EXPOSE 3000
 
-# Define environment variable
-ENV NAME World
-
-# Run app.js when the container launches
+# Comando para iniciar tu aplicación
 CMD ["npm", "start"]
