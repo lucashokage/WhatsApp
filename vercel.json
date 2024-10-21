@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/ingreso", "destination": "/index.html" },
+    { "source": "/subasta", "destination": "/subasta.html" },
+    { "source": "/ara-ara", "destination": "/ara.html" },
+    { "source": "/apuestas", "destination": "/apuestas.html" },
+    { "source": "/dinámicas", "destination": "/senso.html" }
+  ]
+}
