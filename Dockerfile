@@ -1,19 +1,11 @@
-FROM node:lts-buster
+# Usar la imagen base de Nginx
+FROM nginx:alpine
 
-RUN apt-get update && \
-  apt-get install -y \
-  ffmpeg \
-  imagemagick \
-  webp && \
-  apt-get upgrade -y && \
-  rm -rf /var/lib/apt/lists/*
+# Copiar todos los archivos HTML y otros recursos al directorio de Nginx
+COPY . /usr/share/nginx/html/
 
-COPY package.json .
+# Exponer el puerto 80
+EXPOSE 80
 
-RUN npm install
-
-COPY . .
-
-EXPOSE 5000
-
-CMD ["node", "vercel.json"]
+# Comando por defecto para iniciar Nginx
+CMD ["nginx", "-g", "daemon off;"]
