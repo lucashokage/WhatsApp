@@ -1,6 +1,6 @@
 const express = require('express');
-const path = require('path');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,7 +24,7 @@ app.get('*', (req, res) => {
   if (rewrite) {
     res.sendFile(path.join(__dirname, rewrite.destination));
   } else {
-    res.sendFile(path.join(__dirname, 'index.html')); // Redirigir a index.html si no hay coincidencia
+    res.status(404).send('404 Not Found'); // Manejo de rutas no encontradas
   }
 });
 
